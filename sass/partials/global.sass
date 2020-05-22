@@ -1,0 +1,81 @@
+// Colors
+$yellow: #f9ca46
+$blue: #3f83a1
+$red: #e84234
+$green: #85ac33
+$white: #f4f4f4
+$black: #261c28
+
+::selection
+  background-color: #7dffeb
+
+// Elements
+body
+  margin: 0
+  padding: 0
+  background-color: $white
+  transition: .8s ease
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  #app
+    flex-grow: 1
+
+ul
+  margin: 0
+  padding: 0
+  li
+    margin: 0
+    padding: 0
+
+figure
+  margin: 0
+  padding: 0
+  figcaption
+    margin: 0
+    padding: 0
+
+img
+  max-width: 100%
+
+p, input, label, textarea, span, a, button, table, tr, td
+  font-family: 'Jost', sans-serif
+  font-weight: 400
+
+b, strong
+  font-family: 'Jost', sans-serif
+  font-weight: 600
+
+h1
+  font-family: 'Parisienne', cursive
+
+h2, h3, h4, h5, h6
+  font-family: 'Amatic SC', cursive
+  font-weight: 700
+
+h2
+  position: relative
+  display: inline-block
+
+footer
+  padding: 20px 0
+  text-align: center
+  color: white
+  // background-color: $primary-color-dark
+
+// Classes
+.size-0
+  font-size: 0
+
+.container
+  position: relative
+  top: 0
+  left: 0
+  margin: 0 auto
+  max-width: 1100px
+  width: 90%
+  padding-top: 30px
+  padding-bottom: 30px
+  @media(max-width: 950px)
+    width: calc(100% - 10px)
+    margin: 0 5px

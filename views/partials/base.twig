@@ -1,0 +1,54 @@
+<html lang="fr">
+  <head>
+		<meta charset="utf-8">
+
+    <title>{% block title %}Accueil{% endblock %} - Maîtresse Mathilde</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="/favicon.ico" type="image/ico" rel="shortcut icon"> -->
+    <meta name="author" content="Maxence Deschamps">
+    <!-- <meta name="description" content="Portfolio de Maxence Deschamps - Intégrateur Web - Nevers - Lyon - HTML, CSS, JavaScript, PHP, SQL, Bootstrap, jQuery." /> -->
+
+    <link href="/assets/style.min.css" type ="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    {% block nav %}
+      <nav>
+        <ul id="menu" class="container">
+          <li>
+            <a class="title" href="/">Maîtresse <span>Mathilde</span></a>
+          </li>
+
+          <li>
+            <a href="/">Les cours</a>
+          </li>
+
+          <li>
+            <a href="/">Les vidéos</a>
+          </li>
+
+          <li>
+            <a href="/">Les exercices</a>
+          </li>
+
+          <li>
+            <a href="/">Une question ?</a>
+          </li>
+        </ul>
+      </nav>
+    {% endblock %}
+
+    <div id="app">
+      {% block body %}{% endblock %}
+    </div>
+
+    {% block footer %}
+      <footer>
+        <span>&copy; Maxence Deschamps {{ "now"|date("Y") }}</span>
+      </footer>
+    {% endblock %}
+
+    <script type="text/javascript" src="/assets/script.js"></script>
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

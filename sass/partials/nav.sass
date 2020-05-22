@@ -1,0 +1,58 @@
+nav
+  ul#menu
+    list-style-type: none
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: flex-end
+    li
+      list-style-type: none
+      &:nth-child(1)
+        flex: 1
+        a
+          font-family: 'Parisienne', cursive
+          font-size: 2rem
+          color: $black
+          text-decoration: none
+          span
+            font-family: 'Parisienne', cursive
+            font-weight: 600
+            display: block
+            font-size: 1.5rem
+            padding-left: 1.3rem
+            margin-top: -.6rem
+      &:not(:first-child)
+        margin: 0 15px
+        a
+          position: relative
+          font-size: 1.2rem
+          color: $black
+          text-decoration: none
+          padding: 8px 0
+          &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 0
+            height: 4px
+            transition: .6s ease width
+          &:hover
+            &::after
+              width: 100%
+      &:nth-child(2)
+        a
+          &::after
+            background-color: $red
+      &:nth-child(3)
+        a
+          &::after
+            background-color: $yellow
+      &:nth-child(4)
+        a
+          &::after
+            background-color: $blue
+      &:nth-child(5)
+        a
+          &::after
+            background-color: $green
