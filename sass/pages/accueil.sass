@@ -1,2 +1,38 @@
 #accueil
-  
+  section
+    &#presentation
+      article
+        display: flex
+        flex-direction: row-reverse
+        justify-content: space-between
+        align-items: center
+        div.image
+          position: relative
+          width: calc(50% - 30px)
+          img
+            border-radius: 0 0 1rem 0
+          &::after
+            content: ''
+            position: absolute
+            top: 15px
+            left: 15px
+            width: 100%
+            height: 100%
+            z-index: -1
+            border-radius: 0 0 1rem 0
+            background-color: rgba($red, .5)
+
+        div.contenu
+          width: calc(50% - 30px)
+      @media screen and (max-width: 900px)
+        article
+          flex-direction: column
+          div.image
+            width: 100%
+            max-width: 600px
+          div.contenu
+            width: 100%
+      @media screen and (max-width: 500px)
+        article
+          div.image
+            width: calc(90% - 20px)

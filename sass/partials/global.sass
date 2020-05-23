@@ -7,7 +7,7 @@ $white: #f4f4f4
 $black: #261c28
 
 ::selection
-  background-color: #7dffeb
+  background-color: rgba(#ffe82d, 0.6)
 
 // Elements
 body
@@ -64,7 +64,7 @@ footer
   // background-color: $primary-color-dark
 
 // Classes
-.size-0
+.no-size
   font-size: 0
 
 .container
@@ -79,3 +79,25 @@ footer
   @media(max-width: 500px)
     width: calc(100% - 10px)
     margin: 0 5px
+
+div.image
+  img
+    width: 100%
+    object-fit: cover
+    object-position: center
+
+a.close-sub-menu
+  &::before, &::after
+    content: ''
+    position: absolute
+    background-color: $white
+    width: 24px
+    height: 8px
+  &::before
+    top: 10px
+    left: 0
+    transform: rotate(-45deg)
+  &::after
+    top: calc(100% - 18px)
+    left: 0
+    transform: rotate(45deg)
