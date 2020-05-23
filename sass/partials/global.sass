@@ -136,7 +136,7 @@ a.close-sub-menu
     left: 0
     transform: rotate(45deg)
 
-ul.liste-niveaux
+ul.liste-figures
   display: flex
   flex-direction: row
   flex-wrap: wrap
@@ -146,13 +146,20 @@ ul.liste-niveaux
   width: 100%
   li
     margin: 20px 15px
-    width: calc(100% / 5 - 30px)
     list-style-type: none
+    &:hover
+      figure
+        img
+          transform: scale(1.2)
+        figcaption
+          a.no-size
+            &::before, &::after
+              height: 10px
     figure
       position: relative
       width: 100%
-      height: 400px
       overflow: hidden
+      height: 400px
       img
         width: 100%
         height: 100%
@@ -177,7 +184,7 @@ ul.liste-niveaux
           a
             display: block
             color: $white
-            font-size: 3rem
+            text-shadow: 2px 2px 2px rgba($black, .6)
 
         a.no-size
           position: absolute
@@ -198,14 +205,64 @@ ul.liste-niveaux
             bottom: 0
             right: 0
 
-    &:hover
+  @media screen and (max-width: 900px)
+    li
+      width: calc(100% / 2 - 30px)
       figure
-        img
-          transform: scale(1.2)
+        height: 300px
+
+  @media screen and (max-width: 500px)
+    li
+      width: calc(100% - 30px)
+      figure
+        height: 250px
+
+ul.liste-navigation
+  li
+    width: calc(100% / 4 - 30px)
+    figure
+      figcaption
+        h2
+          a
+            font-size: 2rem
+
+    &:nth-child(1)
+      figure
         figcaption
-          a.no-size
+          background-color: rgba($red, .4)
+          a
             &::before, &::after
-              height: 10px
+              background-color: $red
+    &:nth-child(2)
+      figure
+        figcaption
+          background-color: rgba($yellow, .4)
+          a
+            &::before, &::after
+              background-color: $yellow
+    &:nth-child(3)
+      figure
+        figcaption
+          background-color: rgba($blue, .4)
+          a
+            &::before, &::after
+              background-color: $blue
+    &:nth-child(4)
+      figure
+        figcaption
+          background-color: rgba($green, .4)
+          a
+            &::before, &::after
+              background-color: $green
+
+ul.liste-niveaux
+  li
+    width: calc(100% / 5 - 30px)
+    figure
+      figcaption
+        h2
+          a
+            font-size: 3rem
 
     &:nth-child(1)
       figure
@@ -245,14 +302,5 @@ ul.liste-niveaux
 
   @media screen and (max-width: 900px)
     li
-      width: calc(100% / 2 - 30px)
       &:first-child
         width: calc(100% - 30px)
-      figure
-        height: 300px
-
-  @media screen and (max-width: 500px)
-    li
-      width: calc(100% - 30px)
-      figure
-        height: 250px

@@ -14,12 +14,28 @@
         <p>Vous trouverez sur ce site <a href="/les-cours">des cours</a> adaptés à différents niveaux d'enfants, du CP au CM2.</p>
         <p><a href="/les-videos">Des vidéos</a> sont accessibles pour vous permettre de revoir des notions importantes.</p>
         <p>Pour tester tes connaissances, tu trouveras <a href="/les-exercices">des exercices</a> à ton niveau.</p>
-        <p>Si tu as des questions, n'hésite pas à regarder notre <a href="/les-questions">FAQ</a> qui contient peut être ta réponse, ou à me la poser toi-même !</p>
+        <p>Si tu as des questions, n'hésite pas à regarder notre <a href="/les-questions">FAQ</a> qui contient peut-être ta réponse, ou à <a href="/les-questions#contact">me demander</a> par toi-même !</p>
       </div>
 
       <div class="image">
         <img src="/images/school.jpg" alt="Classe d'école" />
       </div>
+    </article>
+
+    <article class="container">
+      <ul class="liste-navigation liste-figures">
+        {% for nav in datas.navigation %}
+          <li>
+            <figure>
+              <img src="images/{{ nav.slug }}.jpg" alt="{{ nav.title }}" />
+              <figcaption>
+                <a class="no-size" href="/{{ nav.slug }}">{{ nav.title }}</a>
+                <h2><a href="/{{ nav.slug }}">{{ nav.title }}</a></h2>
+              </figcaption>
+            </figure>
+          </li>
+        {% endfor %}
+      </ul>
     </article>
   </section>
 </div>
