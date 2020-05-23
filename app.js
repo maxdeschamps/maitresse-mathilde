@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 // DECLARATION DES ROUTES
 // Homepage
 app.get('/', function(req, res) {
-  res.render('pages/index.twig');
+  res.render('pages/index.twig', { niveaux: classes.niveaux });
 });
 
 // Cours
