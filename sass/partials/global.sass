@@ -205,18 +205,6 @@ ul.liste-figures
             bottom: 0
             right: 0
 
-  @media screen and (max-width: 900px)
-    li
-      width: calc(100% / 2 - 30px)
-      figure
-        height: 300px
-
-  @media screen and (max-width: 500px)
-    li
-      width: calc(100% - 30px)
-      figure
-        height: 250px
-
 ul.liste-navigation
   li
     width: calc(100% / 4 - 30px)
@@ -254,6 +242,18 @@ ul.liste-navigation
           a
             &::before, &::after
               background-color: $green
+
+  @media screen and (max-width: 900px)
+    li
+      width: calc(100% / 2 - 30px)
+      figure
+        height: 300px
+
+  @media screen and (max-width: 500px)
+    li
+      width: calc(100% - 30px)
+      figure
+        height: 250px
 
 ul.liste-niveaux
   li
@@ -302,5 +302,14 @@ ul.liste-niveaux
 
   @media screen and (max-width: 900px)
     li
+      width: calc(100% / 2 - 30px)
       &:first-child
         width: calc(100% - 30px)
+      figure
+        height: 300px
+
+  @media screen and (max-width: 500px)
+    li
+      width: calc(100% - 30px)
+      figure
+        height: 250px
