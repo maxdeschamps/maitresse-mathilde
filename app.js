@@ -35,15 +35,19 @@ app.get('/les-cours/:niveau', function(req, res) {
       niveau = null;
 
   request (urlApi, function(error, response, body) {
-    var data = JSON.parse(body);
+    var data = JSON.parse(body),
+        render = false;
 
     data.niveaux.forEach(function(el) {
-      if (el.toLowerCase() == el.slug.toLowerCase()) {
-        res.render('pages/cours/index.twig', { datas: data, niveau: el.slug });
+      if (niveauParam.toLowerCase() == el.slug.toLowerCase()) {
+        render = true;
+        res.render('pages/cours/niveau.twig', { datas: data, niveau: el.slug });
       }
     });
+    if (!render) {
+      res.render('pages/error.twig', { datas: data });
+    }
   });
-  res.render('pages/error.twig', { datas: data });
 });
 
 // Vidéos
@@ -59,15 +63,19 @@ app.get('/les-videos/:niveau', function(req, res) {
       niveau = null;
 
   request (urlApi, function(error, response, body) {
-    var data = JSON.parse(body);
+    var data = JSON.parse(body),
+        render = false;
 
     data.niveaux.forEach(function(el) {
-      if (el.toLowerCase() == el.slug.toLowerCase()) {
-        res.render('pages/video/index.twig', { datas: data, niveau: el.slug });
+      if (niveauParam.toLowerCase() == el.slug.toLowerCase()) {
+        render = true;
+        res.render('pages/video/niveau.twig', { datas: data, niveau: el.slug });
       }
     });
+    if (!render) {
+      res.render('pages/error.twig', { datas: data });
+    }
   });
-  res.render('pages/error.twig', { datas: data });
 });
 
 // Exercices
@@ -83,15 +91,19 @@ app.get('/les-exercices/:niveau', function(req, res) {
       niveau = null;
 
   request (urlApi, function(error, response, body) {
-    var data = JSON.parse(body);
+    var data = JSON.parse(body),
+        render = false;
 
     data.niveaux.forEach(function(el) {
-      if (el.toLowerCase() == el.slug.toLowerCase()) {
-        res.render('pages/exercice/index.twig', { datas: data, niveau: el.slug });
+      if (niveauParam.toLowerCase() == el.slug.toLowerCase()) {
+        render = true;
+        res.render('pages/exercice/niveau.twig', { datas: data, niveau: el.slug });
       }
     });
+    if (!render) {
+      res.render('pages/error.twig', { datas: data });
+    }
   });
-  res.render('pages/error.twig', { datas: data });
 });
 
 // Questions
@@ -106,7 +118,7 @@ app.get('/les-questions', function(req, res) {
 app.get('*', function(req, res) {
   request (urlApi, function(error, response, body) {
     var data = JSON.parse(body);
-    res.render('pages/error/index.twig', { datas: data });
+    res.render('pages/error.twig', { datas: data });
   });
 });
 

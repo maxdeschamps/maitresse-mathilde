@@ -140,8 +140,10 @@ ul.liste-niveaux
   display: flex
   flex-direction: row
   flex-wrap: wrap
-  margin: 0 -15px
+  margin: 0 auto
   list-style-type: none
+  overflow: hidden
+  width: 100%
   li
     margin: 20px 15px
     width: calc(100% / 5 - 30px)
@@ -246,7 +248,11 @@ ul.liste-niveaux
       width: calc(100% / 2 - 30px)
       &:first-child
         width: calc(100% - 30px)
+      figure
+        height: 300px
 
   @media screen and (max-width: 500px)
     li
       width: calc(100% - 30px)
+      figure
+        height: 250px

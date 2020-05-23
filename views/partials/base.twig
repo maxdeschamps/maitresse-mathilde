@@ -18,7 +18,7 @@
           </li>
 
           {% for nav in datas.navigation %}
-            <li>
+            <li class="{% if page == nav.slug %}active{% endif %}" >
               <a href="/{{ nav.slug }}">{{ nav.title }}</a>
               <ul class="sub-menu">
                 {% if nav.slug != 'les-questions' %}
