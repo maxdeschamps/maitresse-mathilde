@@ -1,0 +1,19 @@
+{% extends '../../partials/base.twig' %}
+
+{% block title %}Les exercices niveau {{ niveau | upper }}{% endblock %}
+
+{% block body %}
+<div id="accueil">
+  <div class="container">
+    <section>
+      <article>
+        <div class="contenu">
+          <h1>Les exercices niveau <strong>{{ niveau | upper }}</strong></h1>
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

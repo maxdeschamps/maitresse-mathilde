@@ -6,6 +6,8 @@ $green: #85ac33
 $white: #f4f4f4
 $black: #261c28
 
+$light-blue: #5acdff
+
 ::selection
   background-color: rgba(#ffe82d, 0.6)
 
@@ -39,30 +41,37 @@ img
   max-width: 100%
 
 p, input, label, textarea, span, button, table, tr, td
-  font-family: 'Jost', sans-serif
+  font-family: 'Josefin Sans', sans-serif
   font-weight: 400
   font-size: 1.2rem
+  color: $black
 
 b, strong
-  font-family: 'Jost', sans-serif
-  font-weight: 600
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 700
   font-size: 1.2rem
+  color: $black
 
 a
-  font-family: 'Jost', sans-serif
-  font-weight: 600
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 700
+  font-size: 1.2rem
   color: $black
   text-decoration: none
-  font-size: 1.2rem
 
 h1
   font-family: 'Parisienne', cursive
   font-size: 1.8rem
+  color: $black
+  strong
+    font-family: 'Caveat', cursive
+
 
 h2, h3, h4, h5, h6
-  font-family: 'Amatic SC', cursive
+  font-family: 'Caveat', cursive
   font-weight: 700
   font-size: 1.6rem
+  color: $black
 
 footer
   padding: 20px 0
@@ -78,20 +87,37 @@ footer
   position: relative
   top: 0
   left: 0
-  margin: 0 auto
+  margin: 30px auto
   max-width: 1100px
   width: 90%
-  padding-top: 30px
-  padding-bottom: 30px
-  @media(max-width: 500px)
-    width: calc(100% - 10px)
-    margin: 0 5px
+  padding: 0
+  @media(max-width: 600px)
+    width: 95%
 
 div.image
   img
     width: 100%
     object-fit: cover
     object-position: center
+
+.contenu
+  a
+    position: relative
+    display: inline-block
+    &::before
+      content: ''
+      position: absolute
+      left: -2px
+      top: 50%
+      transform: translateY(-50%)
+      width: 0
+      height: 6px
+      z-index: -1
+      background-color: rgba($light-blue, .8)
+      transition: .3s ease
+    &:hover
+      &::before
+        width: calc(100% + 4px)
 
 a.close-sub-menu
   &::before, &::after
