@@ -1,14 +1,12 @@
 <html lang="fr">
   <head>
 		<meta charset="utf-8">
-
     <title>{% block title %}Accueil{% endblock %} - Maîtresse Mathilde</title>
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link href="/favicon.ico" type="image/ico" rel="shortcut icon"> -->
     <meta name="author" content="Maxence Deschamps">
-    <!-- <meta name="description" content="Portfolio de Maxence Deschamps - Intégrateur Web - Nevers - Lyon - HTML, CSS, JavaScript, PHP, SQL, Bootstrap, jQuery." /> -->
-
+    <meta name="description" content="Classe virtuelle de Maîtresse Mathilde - Niveau CP, CE1, CE2, CM1, CM2 - Cours, Vidéos, Exercices" />
     <link href="/assets/style.min.css" type ="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -19,42 +17,20 @@
             <a class="title" href="/">Maîtresse <br/><span>Mathilde</span></a>
           </li>
 
-          <li>
-            <a href="/les-cours">Les cours</a>
-            <ul class="sub-menu">
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-cours/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a href="/les-videos">Les vidéos</a>
-            <ul class="sub-menu">
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-videos/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a href="/les-exercices">Les exercices</a>
-            <ul class="sub-menu">
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-exercices/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a href="/les-questions">Une question ?</a>
-          </li>
+          {% for nav in datas.navigation %}
+            <li>
+              <a href="/{{ nav.slug }}">{{ nav.title }}</a>
+              <ul class="sub-menu">
+                {% if nav.slug != 'les-questions' %}
+                  {% for niveau in datas.niveaux %}
+                    <li>
+                      <a href="/{{ nav.slug }}/{{ niveau.slug | lower }}">{{ niveau.slug | upper }}</a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </li>
+          {% endfor %}
         </ul>
 
         <button id="toggle-nav">
@@ -64,54 +40,26 @@
         </button>
 
         <ul id="menu-mobile" class="container">
-          <li>
-            <a class="open-sub-menu" href="#">Les cours</a>
-            <ul class="sub-menu">
-              <li>
-                <a class="close-sub-menu no-size" href="#">Retour</a>
-                <a href="/les-cours">Les cours</a>
-              </li>
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-cours/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a class="open-sub-menu" href="#">Les vidéos</a>
-            <ul class="sub-menu">
-              <li>
-                <a class="close-sub-menu no-size" href="#">Retour</a>
-                <a href="/les-videos">Les vidéos</a>
-              </li>
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-videos/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a class="open-sub-menu" href="#">Les exercices</a>
-            <ul class="sub-menu">
-              <li>
-                <a class="close-sub-menu no-size" href="#">Retour</a>
-                <a href="/les-exercices">Les exerices</a>
-              </li>
-              {% for niveau in niveaux %}
-                <li>
-                  <a href="/les-exercices/{{ niveau | lower }}">{{ niveau | upper }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li>
-            <a href="/les-questions">Une question ?</a>
-          </li>
+          {% for nav in datas.navigation %}
+            <li>
+              {% if nav.slug != 'les-questions' %}
+                <a class="open-sub-menu" href="#">{{ nav.title }}</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a class="close-sub-menu no-size" href="#">Retour</a>
+                    <a href="/{{ nav.slug }}">{{ nav.title }}</a>
+                  </li>
+                  {% for niveau in datas.niveaux %}
+                    <li>
+                      <a href="/{{ nav.slug }}/{{ niveau.slug | lower }}">{{ niveau.slug | upper }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <a href="{{ nav.slug }}">{{ nav.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
         </ul>
       </nav>
     {% endblock %}

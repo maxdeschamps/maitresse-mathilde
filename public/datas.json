@@ -1,0 +1,31 @@
+{
+  "niveaux": [
+    {
+      "slug": "CP"
+    }, {
+      "slug": "CE1"
+    }, {
+      "slug": "CE2"
+    }, {
+      "slug": "CM1"
+    }, {
+      "slug": "CM2"
+    }
+  ],
+
+  "navigation": [
+    {
+      "slug" : "les-cours",
+      "title": "Les cours"
+    }, {
+      "slug" : "les-videos",
+      "title": "Les vidéos"
+    }, {
+      "slug" : "les-exercices",
+      "title": "Les exercices"
+    }, {
+      "slug" : "les-questions",
+      "title": "Une question ?"
+    }
+  ]
+}

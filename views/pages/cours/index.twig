@@ -4,15 +4,29 @@
 
 {% block body %}
 <div id="accueil">
-  <div class="container">
-    <section>
-      <article>
-        <div class="contenu">
-          <h1>Les cours</h1>
-        </div>
-      </article>
-    </section>
-  </div>
+  <section>
+    <article class="container">
+      <div class="contenu">
+        <h1>Les cours</h1>
+      </div>
+    </article>
+
+    <article class="container">
+      <ul class="liste-niveaux">
+        {% for niveau in datas.niveaux %}
+          <li>
+            <figure>
+              <img src="images/{{ niveau.slug | lower }}.jpg" alt="Cours niveau {{ niveau.slug | upper }}" />
+              <figcaption>
+                <a class="no-size" href="/cours/{{ niveau.slug | lower }}">Cours niveau {{ niveau.slug | upper }}</a>
+                <h2><a href="/cours/{{ niveau.slug | lower }}">{{ niveau.slug | upper }}</a></h2>
+              </figcaption>
+            </figure>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
 </div>
 {% endblock %}
 

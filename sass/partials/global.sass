@@ -3,6 +3,7 @@ $yellow: #f9ca46
 $blue: #3f83a1
 $red: #e84234
 $green: #85ac33
+$purple: #b15bed
 $white: #f4f4f4
 $black: #261c28
 
@@ -134,3 +135,118 @@ a.close-sub-menu
     top: calc(100% - 18px)
     left: 0
     transform: rotate(45deg)
+
+ul.liste-niveaux
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  margin: 0 -15px
+  list-style-type: none
+  li
+    margin: 20px 15px
+    width: calc(100% / 5 - 30px)
+    list-style-type: none
+    figure
+      position: relative
+      width: 100%
+      height: 400px
+      overflow: hidden
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center
+        transition: .3s ease
+
+      figcaption
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        h2
+          position: absolute
+          left: 0
+          top: 50%
+          transform: translateY(-50%)
+          display: block
+          text-align: center
+          width: 100%
+          a
+            display: block
+            color: $white
+            font-size: 3rem
+
+        a.no-size
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          &::before, &::after
+            content: ''
+            position: absolute
+            width: 100%
+            height: 20px
+            transition: .3s ease height
+          &::before
+            top: 0
+            left: 0
+          &::after
+            bottom: 0
+            right: 0
+
+    &:hover
+      figure
+        img
+          transform: scale(1.2)
+        figcaption
+          a.no-size
+            &::before, &::after
+              height: 10px
+
+    &:nth-child(1)
+      figure
+        figcaption
+          background-color: rgba($red, .4)
+          a
+            &::before, &::after
+              background-color: $red
+    &:nth-child(2)
+      figure
+        figcaption
+          background-color: rgba($yellow, .4)
+          a
+            &::before, &::after
+              background-color: $yellow
+    &:nth-child(3)
+      figure
+        figcaption
+          background-color: rgba($blue, .4)
+          a
+            &::before, &::after
+              background-color: $blue
+    &:nth-child(4)
+      figure
+        figcaption
+          background-color: rgba($green, .4)
+          a
+            &::before, &::after
+              background-color: $green
+    &:nth-child(5)
+      figure
+        figcaption
+          background-color: rgba($purple, .4)
+          a
+            &::before, &::after
+              background-color: $purple
+
+  @media screen and (max-width: 900px)
+    li
+      width: calc(100% / 2 - 30px)
+      &:first-child
+        width: calc(100% - 30px)
+
+  @media screen and (max-width: 500px)
+    li
+      width: calc(100% - 30px)

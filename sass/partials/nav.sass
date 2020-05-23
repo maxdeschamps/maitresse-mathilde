@@ -42,9 +42,10 @@ nav
           li
             background-color: rgba($blue, .3)
       &:nth-child(5)
-        & > a
-          &::after
-            background-color: $green
+        ul.sub-menu
+          border-top: 4px solid $green
+          li
+            background-color: rgba($green, .3)
       ul.sub-menu
         z-index: 10
         position: absolute
