@@ -1,0 +1,28 @@
+{% extends '../partials/base.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div id="accueil">
+  <div class="container">
+    <section id="presentation">
+      <article>
+        <div class="contenu">
+          <h1>Bienvenue dans la classe virtuelle de <strong>Maîtresse Mathilde</strong></h1>
+
+          <p>Vous trouverez sur ce site <a href="/les-cours">des cours</a> adaptés à différents niveaux d'enfants, du CP au CM2.</p>
+          <p><a href="/les-videos">Des vidéos</a> sont accessibles pour vous permettre de revoir des notions importantes.</p>
+          <p>Pour tester tes connaissances, tu trouveras <a href="/les-exercices">des exercices</a> à ton niveau.</p>
+          <p>Si tu as des questions, n'hésite pas à regarder notre <a href="/les-questions">FAQ</a> qui contient peut être ta réponse, ou à me la poser toi-même !</p>
+        </div>
+
+        <div class="image">
+          <img src="/images/school.jpg" alt="Classe d'école" />
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
