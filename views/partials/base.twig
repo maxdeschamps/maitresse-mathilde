@@ -11,14 +11,14 @@
   </head>
   <body>
     {% block nav %}
-      <nav>
+      <nav id="header-navigation">
         <ul id="menu-desktop" class="container">
           <li>
             <a class="title" href="/">Maîtresse <br/><span>Mathilde</span></a>
           </li>
 
           {% for nav in datas.navigation %}
-            <li class="{% if page == nav.slug %}active{% endif %}" >
+            <li class="{{ nav.color }} {% if page == nav.slug %}active{% endif %}" >
               <a href="/{{ nav.slug }}">{{ nav.title }}</a>
               <ul class="sub-menu">
                 {% if nav.slug != 'les-questions' %}
@@ -41,7 +41,7 @@
 
         <ul id="menu-mobile" class="container">
           {% for nav in datas.navigation %}
-            <li>
+            <li class="{{ nav.color }}">
               {% if nav.slug != 'les-questions' %}
                 <a class="open-sub-menu" href="#">{{ nav.title }}</a>
                 <ul class="sub-menu">
@@ -64,13 +64,36 @@
       </nav>
     {% endblock %}
 
-    <div id="app">
+    <main id="app">
       {% block body %}{% endblock %}
-    </div>
+    </main>
 
     {% block footer %}
-      <footer>
-        <span>&copy; Maxence Deschamps {{ "now"|date("Y") }}</span>
+      <footer id="footer">
+        <nav class="container">
+          <ul>
+            <li>
+              <a class="title" href="/">Maîtresse <br/><span>Mathilde</span></a>
+            </li>
+
+            {% for nav in datas.navigation %}
+              <li class="{{ nav.color }} {% if page == nav.slug %}active{% endif %}" >
+                <a href="/{{ nav.slug }}">{{ nav.title }}</a>
+                <ul class="sub-menu">
+                  {% if nav.slug != 'les-questions' %}
+                    {% for niveau in datas.niveaux %}
+                      <li>
+                        <a href="/{{ nav.slug }}/{{ niveau.slug | lower }}">{{ niveau.slug | upper }}</a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <span class="copyright">&copy; Maxence Deschamps {{ "now"|date("Y") }}</span>
       </footer>
     {% endblock %}
 

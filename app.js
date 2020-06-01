@@ -16,7 +16,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
   request (urlApi, function(error, response, body) {
     var data = JSON.parse(body);
-    console.log(data)
     res.render('pages/index.twig', { datas: data });
   });
 

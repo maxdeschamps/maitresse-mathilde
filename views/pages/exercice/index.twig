@@ -5,7 +5,7 @@
 {% block title %}Les exercices{% endblock %}
 
 {% block body %}
-<div id="accueil">
+<div id="exercice-index">
   <section>
     <article class="container">
       <div class="contenu">
@@ -16,7 +16,7 @@
     <article class="container">
       <ul class="liste-niveaux liste-figures">
         {% for niveau in datas.niveaux %}
-          <li>
+          <li class="{{ niveau.color }}">
             <figure>
               <img src="images/{{ niveau.slug | lower }}.jpg" alt="Exercices niveau {{ niveau.slug | upper }}" />
               <figcaption>

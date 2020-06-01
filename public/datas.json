@@ -1,31 +1,40 @@
 {
   "niveaux": [
     {
-      "slug": "CP"
+      "slug": "CP",
+      "color": "red"
     }, {
-      "slug": "CE1"
+      "slug": "CE1",
+      "color": "yellow"
     }, {
-      "slug": "CE2"
+      "slug": "CE2",
+      "color": "blue"
     }, {
-      "slug": "CM1"
+      "slug": "CM1",
+      "color": "green"
     }, {
-      "slug": "CM2"
+      "slug": "CM2",
+      "color": "purple"
     }
   ],
 
   "navigation": [
     {
       "slug" : "les-cours",
-      "title": "Les cours"
+      "title": "Les cours",
+      "color": "red"
     }, {
       "slug" : "les-videos",
-      "title": "Les vidéos"
+      "title": "Les vidéos",
+      "color": "yellow"
     }, {
       "slug" : "les-exercices",
-      "title": "Les exercices"
+      "title": "Les exercices",
+      "color": "blue"
     }, {
       "slug" : "les-questions",
-      "title": "Une question ?"
+      "title": "Une question ?",
+      "color": "green"
     }
   ]
 }

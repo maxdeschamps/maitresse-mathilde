@@ -1,5 +1,5 @@
 window.onload = function() {
-  // Animation menu mobile
+  // MENU
   var toggleBtn = document.getElementById('toggle-nav'),
       mobileMenu = document.getElementById('menu-mobile'),
       openSubMenuBtn = document.getElementsByClassName('open-sub-menu'),
@@ -21,6 +21,7 @@ window.onload = function() {
         }
 
         if (subMenu) {
+          subMenu.parentNode.classList.remove('active');
           subMenu.classList.remove('active');
         }
       }
@@ -40,6 +41,7 @@ window.onload = function() {
         }
 
         if (subMenu) {
+          subMenu.parentNode.classList.add('active');
           subMenu.classList.add('active');
         }
       });
@@ -51,10 +53,21 @@ window.onload = function() {
     for (let i=0; i<closeSubMenuBtn.length; i++) {
       closeSubMenuBtn[i].addEventListener('click', function(el) {
         if (el.target.parentNode.parentNode.nodeName == 'UL' && el.target.parentNode.parentNode.classList.contains('sub-menu')) {
+          el.target.parentNode.parentNode.parentNode.classList.remove('active');
           el.target.parentNode.parentNode.classList.remove('active');
         }
       });
     }
+  }
+
+  // FOOTER
+  var footerEl = document.getElementById('footer'),
+      mainEl = document.getElementById('app');
+
+  // Calcul du margin du main pour voir le footer
+  if (mainEl && footerEl) {
+    let footerHeight = footerEl.offsetHeight;
+    mainEl.style.marginBottom = footerHeight;
   }
 
   // Fermeture du menu mobile lors du redimensionnement de la page
@@ -84,6 +97,11 @@ window.onload = function() {
           }
         }
       }
+    }
+
+    if (mainEl && footerEl) {
+      let footerHeight = footerEl.offsetHeight;
+      mainEl.style.marginBottom = footerHeight;
     }
   };
 

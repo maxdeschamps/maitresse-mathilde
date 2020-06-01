@@ -17,13 +17,11 @@ body
   margin: 0
   padding: 0
   background-color: $white
-  transition: .8s ease
-  display: flex
-  min-height: 100vh
-  flex-direction: column
   #app
-    flex-grow: 1
-
+    padding-bottom: 40px
+    background-color: $white
+    position: relative
+    z-index: 1
 ul
   margin: 0
   padding: 0
@@ -67,18 +65,11 @@ h1
   strong
     font-family: 'Caveat', cursive
 
-
 h2, h3, h4, h5, h6
   font-family: 'Caveat', cursive
   font-weight: 700
   font-size: 1.6rem
   color: $black
-
-footer
-  padding: 20px 0
-  text-align: center
-  color: white
-  // background-color: $primary-color-dark
 
 // Classes
 .no-size
@@ -88,10 +79,10 @@ footer
   position: relative
   top: 0
   left: 0
-  margin: 30px auto
+  margin: 0  auto
   max-width: 1100px
   width: 90%
-  padding: 0
+  padding: 15px 0
   @media(max-width: 600px)
     width: 95%
 
@@ -214,35 +205,6 @@ ul.liste-navigation
           a
             font-size: 2rem
 
-    &:nth-child(1)
-      figure
-        figcaption
-          background-color: rgba($red, .4)
-          a
-            &::before, &::after
-              background-color: $red
-    &:nth-child(2)
-      figure
-        figcaption
-          background-color: rgba($yellow, .4)
-          a
-            &::before, &::after
-              background-color: $yellow
-    &:nth-child(3)
-      figure
-        figcaption
-          background-color: rgba($blue, .4)
-          a
-            &::before, &::after
-              background-color: $blue
-    &:nth-child(4)
-      figure
-        figcaption
-          background-color: rgba($green, .4)
-          a
-            &::before, &::after
-              background-color: $green
-
   @media screen and (max-width: 900px)
     li
       width: calc(100% / 2 - 30px)
@@ -264,42 +226,6 @@ ul.liste-niveaux
           a
             font-size: 3rem
 
-    &:nth-child(1)
-      figure
-        figcaption
-          background-color: rgba($red, .4)
-          a
-            &::before, &::after
-              background-color: $red
-    &:nth-child(2)
-      figure
-        figcaption
-          background-color: rgba($yellow, .4)
-          a
-            &::before, &::after
-              background-color: $yellow
-    &:nth-child(3)
-      figure
-        figcaption
-          background-color: rgba($blue, .4)
-          a
-            &::before, &::after
-              background-color: $blue
-    &:nth-child(4)
-      figure
-        figcaption
-          background-color: rgba($green, .4)
-          a
-            &::before, &::after
-              background-color: $green
-    &:nth-child(5)
-      figure
-        figcaption
-          background-color: rgba($purple, .4)
-          a
-            &::before, &::after
-              background-color: $purple
-
   @media screen and (max-width: 900px)
     li
       width: calc(100% / 2 - 30px)
@@ -313,3 +239,41 @@ ul.liste-niveaux
       width: calc(100% - 30px)
       figure
         height: 250px
+
+ul
+  li
+    &.red
+      figure
+        figcaption
+        background-color: rgba($red, .4)
+        a
+          &::before, &::after
+            background-color: $red
+    &.yellow
+      figure
+        figcaption
+        background-color: rgba($yellow, .4)
+        a
+          &::before, &::after
+            background-color: $yellow
+    &.blue
+      figure
+        figcaption
+        background-color: rgba($blue, .4)
+        a
+          &::before, &::after
+            background-color: $blue
+    &.green
+      figure
+        figcaption
+        background-color: rgba($green, .4)
+        a
+          &::before, &::after
+            background-color: $green
+    &.purple
+      figure
+        figcaption
+          background-color: rgba($purple, .4)
+          a
+            &::before, &::after
+              background-color: $purple
