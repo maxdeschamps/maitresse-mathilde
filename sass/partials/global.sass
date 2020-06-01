@@ -1,16 +1,20 @@
 // Colors
+$red: #e84234
 $yellow: #f9ca46
 $blue: #3f83a1
-$red: #e84234
 $green: #85ac33
 $purple: #b15bed
 $white: #f4f4f4
 $black: #261c28
 
+$light-red: #ff6558
+$light-yellow: #ffe82d
 $light-blue: #5acdff
+$light-green: #b1e24c
+$light-purple: #c88df1
 
 ::selection
-  background-color: rgba(#ffe82d, 0.6)
+  background-color: rgba($light-yellow, 0.6)
 
 // Elements
 body
@@ -105,8 +109,19 @@ div.image
       width: 0
       height: 6px
       z-index: -1
-      background-color: rgba($light-blue, .8)
       transition: .3s ease
+    &.red
+      &::before
+        background-color: rgba($light-red, .8)
+    &.yellow
+      &::before
+        background-color: rgba($light-yellow, .8)
+    &.blue
+      &::before
+        background-color: rgba($light-blue, .8)
+    &.green
+      &::before
+        background-color: rgba($light-green, .8)
     &:hover
       &::before
         width: calc(100% + 4px)
