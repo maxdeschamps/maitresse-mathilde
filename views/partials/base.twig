@@ -46,6 +46,7 @@
                 <a class="open-sub-menu" href="#">{{ nav.title }}</a>
                 <ul class="sub-menu">
                   <li>
+                    <span class="background"></span>
                     <a class="close-sub-menu no-size" href="#">Retour</a>
                     <a href="/{{ nav.slug }}">{{ nav.title }}</a>
                   </li>
@@ -56,7 +57,7 @@
                   {% endfor %}
                 </ul>
               {% else %}
-                <a href="{{ nav.slug }}">{{ nav.title }}</a>
+                <a href="/{{ nav.slug }}">{{ nav.title }}</a>
               {% endif %}
             </li>
           {% endfor %}
