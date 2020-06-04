@@ -108,10 +108,10 @@ nav#header-navigation
           display: none
 
   button#toggle-nav
-    // display: none
+    display: none
     position: fixed
     z-index: 10
-    top: 30px
+    top: 26px
     right: 30px
     background-color: transparent
     border: none
@@ -171,6 +171,7 @@ nav#header-navigation
     &.active
       visibility: visible
       opacity: 1
+
     & > li
       list-style-type: none
       font-weight: 600
@@ -178,13 +179,14 @@ nav#header-navigation
       & > a
         position: relative
         padding: 10px 0
+        padding-left: 2px
         font-size: 2rem
         &::after
           content: ''
           position: absolute
           bottom: 0
           left: 0
-          width: 100%
+          width: calc(100% + 2px)
           height: 6px
           transition: .3s ease
 
@@ -265,6 +267,8 @@ nav#header-navigation
               position: relative
               font-size: 2rem
               transition: 1s ease, 1.5s ease color
+              display: inline-block
+              margin: auto
 
             &.animate
               height: 76px
@@ -274,7 +278,6 @@ nav#header-navigation
                 width: 100%
                 height: 100%
               a:not(.no-size)
-                margin: auto
                 margin-top: 15px
                 padding: 10px 0
 
@@ -282,6 +285,18 @@ nav#header-navigation
             visibility: hidden
             opacity: 0
             transition: .4s ease
+            list-style-type: none
+            margin: 0
+            padding: 0
+            width: 100%
+            flex: 1
+            display: flex
+            position: relative
+            a
+              font-size: 1.4rem
+              display: inline-block
+              margin: auto
+              font-weight: 600
 
         &.animate
           li
@@ -293,20 +308,8 @@ nav#header-navigation
             &:not(:first-child)
               visibility: visible
               opacity: 1
-              list-style-type: none
-              margin: 0
-              padding: 0
-              width: 100%
-              flex: 1
-              display: flex
-              position: relative
-              a
-                font-size: 1.4rem
 
           a
-            display: inline-block
-            margin: auto
-            font-weight: 600
             &.close-sub-menu
               position: absolute
               left: 30px

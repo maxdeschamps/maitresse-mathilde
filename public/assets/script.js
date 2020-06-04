@@ -87,7 +87,7 @@ window.onload = function() {
         subMenu.children[0].style.width = sizesLiSubMenu[i] + 'px';
 
         posLiSubMenu[i] = { top  : subMenu.parentNode.children[0].getBoundingClientRect().top,
-                            left : subMenu.parentNode.children[0].getBoundingClientRect().left }
+                            left : subMenu.parentNode.children[0].getBoundingClientRect().left };
       }
     }
   }
@@ -97,15 +97,22 @@ window.onload = function() {
     for (let i=0; i<closeSubMenuBtn.length; i++) {
       closeSubMenuBtn[i].addEventListener('click', function(el) {
         if (el.target.parentNode.parentNode.nodeName == 'UL' && el.target.parentNode.parentNode.classList.contains('sub-menu')) {
-          el.target.parentNode.parentNode.children[0].children[2].style.color = 'black';
-
           el.target.parentNode.parentNode.children[0].style.width = sizesLiSubMenu[i] + 'px';
           el.target.parentNode.parentNode.children[0].style.top = posLiSubMenu[i].top + 7.5 + 'px';
           el.target.parentNode.parentNode.children[0].style.left = posLiSubMenu[i].left - 4 + 'px';
 
-          el.target.parentNode.parentNode.classList.remove('animate');
-          el.target.parentNode.parentNode.classList.remove('active');
-          el.target.parentNode.parentNode.children[0].classList.remove('animate');
+          setTimeout(() => {
+            el.target.parentNode.parentNode.classList.remove('animate');
+            el.target.parentNode.parentNode.children[0].classList.remove('animate');
+          }, 100);
+
+          setTimeout(() => {
+            el.target.parentNode.parentNode.children[0].children[2].style.color = 'black';
+          }, 300)
+
+          setTimeout(() => {
+            el.target.parentNode.parentNode.classList.remove('active');
+          }, 700)
         }
 
         let subMenu = null;
@@ -122,36 +129,6 @@ window.onload = function() {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // FOOTER
   var footerEl = document.getElementById('footer'),
       mainEl = document.getElementById('app');
@@ -164,12 +141,12 @@ window.onload = function() {
 
   // Fermeture du menu mobile lors du redimensionnement de la page
   window.onresize = function() {
-    if (window.innerWidth > 900) {
-      // Animation menu mobile
-      var toggleBtn = document.getElementById('toggle-nav'),
-          mobileMenu = document.getElementById('menu-mobile'),
-          openSubMenuBtn = document.getElementsByClassName('open-sub-menu');
+    // Animation menu mobile
+    var toggleBtn = document.getElementById('toggle-nav'),
+        mobileMenu = document.getElementById('menu-mobile'),
+        openSubMenuBtn = document.getElementsByClassName('open-sub-menu');
 
+    if (window.innerWidth > 900) {
       // Fermeture du menu mobile
       if (toggleBtn && mobileMenu) {
         toggleBtn.classList.remove('active');
@@ -191,6 +168,22 @@ window.onload = function() {
       }
     }
 
+    // Recalcule des positions des elements du menu
+    for (let i=0; i<openSubMenuBtn.length; i++) {
+      let subMenu = null;
+      for (let j=0; j<openSubMenuBtn[i].parentNode.children.length; j++) {
+        if (openSubMenuBtn[i].parentNode.children[j].nodeName == 'UL' && openSubMenuBtn[i].parentNode.children[j].classList.contains('sub-menu')) {
+          subMenu = openSubMenuBtn[i].parentNode.children[j];
+        }
+      }
+
+      if (subMenu) {
+        posLiSubMenu[i].top = subMenu.parentNode.children[0].getBoundingClientRect().top;
+        posLiSubMenu[i].left = subMenu.parentNode.children[0].getBoundingClientRect().left;
+      }
+    }
+
+    // Calcul de la taille du footer
     if (mainEl && footerEl) {
       let footerHeight = footerEl.offsetHeight;
       mainEl.style.marginBottom = footerHeight;
