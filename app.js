@@ -116,8 +116,9 @@ app.get('/les-questions', function(req, res) {
 // 404
 app.get('*', function(req, res) {
   request (urlApi, function(error, response, body) {
-    var data = JSON.parse(body);
-    res.render('pages/error.twig', { datas: data });
+    var data = JSON.parse(body),
+        randomInt = Math.round(Math.random() * 7) + 1;
+    res.render('pages/error.twig', { datas: data, randomInt: randomInt });
   });
 });
 

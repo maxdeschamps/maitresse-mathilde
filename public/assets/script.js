@@ -135,8 +135,12 @@ window.onload = function() {
 
   // Calcul du margin du main pour voir le footer
   if (mainEl && footerEl) {
-    let footerHeight = footerEl.offsetHeight;
-    mainEl.style.marginBottom = footerHeight;
+    if (window.innerHeight <= 550) {
+      mainEl.style.marginBottom = 0;
+    } else {
+      let footerHeight = footerEl.offsetHeight;
+      mainEl.style.marginBottom = footerHeight;
+    }
   }
 
   // Fermeture du menu mobile lors du redimensionnement de la page
@@ -185,8 +189,12 @@ window.onload = function() {
 
     // Calcul de la taille du footer
     if (mainEl && footerEl) {
-      let footerHeight = footerEl.offsetHeight;
-      mainEl.style.marginBottom = footerHeight;
+      if (window.innerHeight <= 550) {
+        mainEl.style.marginBottom = 0;
+      } else {
+        let footerHeight = footerEl.offsetHeight;
+        mainEl.style.marginBottom = footerHeight;
+      }
     }
   };
 
