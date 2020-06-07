@@ -137,10 +137,11 @@ window.onload = function() {
   if (mainEl && footerEl) {
     if (window.innerHeight <= 550) {
       mainEl.style.marginBottom = 0;
-      mainEl.style.position = 'relative';
+      footerEl.style.position = 'relative';
     } else {
       let footerHeight = footerEl.offsetHeight;
       mainEl.style.marginBottom = footerHeight;
+      footerEl.style.position = 'fixed';
     }
   }
 
@@ -193,11 +194,11 @@ window.onload = function() {
     if (mainEl && footerEl) {
       if (window.innerHeight <= 550) {
         mainEl.style.marginBottom = 0;
-        mainEl.style.position = 'relative';
+        footerEl.style.position = 'relative';
       } else {
         let footerHeight = footerEl.offsetHeight;
         mainEl.style.marginBottom = footerHeight;
-        mainEl.style.position = 'fixed';
+        footerEl.style.position = 'fixed';
       }
     }
   };
