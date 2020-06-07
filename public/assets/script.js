@@ -137,20 +137,16 @@ window.onload = function() {
   if (mainEl && footerEl) {
     if (window.innerHeight <= 550) {
       mainEl.style.marginBottom = 0;
+      mainEl.style.position = 'relative';
     } else {
       let footerHeight = footerEl.offsetHeight;
       mainEl.style.marginBottom = footerHeight;
     }
   }
 
-  var textSize = document.getElementById('textSize');
-  textSize.innerHTML = "width:" + window.innerWidth + " - height:" + window.innerHeight;
-
   // Fermeture du menu mobile lors du redimensionnement de la page
   window.onresize = function() {
 
-    textSize.innerHTML = "width:" + window.innerWidth + " - height:" + window.innerHeight;
-    
     // Animation menu mobile
     var toggleBtn = document.getElementById('toggle-nav'),
         mobileMenu = document.getElementById('menu-mobile'),
@@ -197,9 +193,11 @@ window.onload = function() {
     if (mainEl && footerEl) {
       if (window.innerHeight <= 550) {
         mainEl.style.marginBottom = 0;
+        mainEl.style.position = 'relative';
       } else {
         let footerHeight = footerEl.offsetHeight;
         mainEl.style.marginBottom = footerHeight;
+        mainEl.style.position = 'fixed';
       }
     }
   };
