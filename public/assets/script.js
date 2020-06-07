@@ -143,8 +143,14 @@ window.onload = function() {
     }
   }
 
+  var textSize = document.getElementById('textSize');
+  textSize.innerHTML = "width:" + window.innerWidth + " - height:" + window.innerHeight;
+
   // Fermeture du menu mobile lors du redimensionnement de la page
   window.onresize = function() {
+
+    textSize.innerHTML = "width:" + window.innerWidth + " - height:" + window.innerHeight;
+    
     // Animation menu mobile
     var toggleBtn = document.getElementById('toggle-nav'),
         mobileMenu = document.getElementById('menu-mobile'),
